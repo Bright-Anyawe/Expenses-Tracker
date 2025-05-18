@@ -121,7 +121,7 @@ export function ExpenseForm({ onSubmit, initialExpense }: ExpenseFormProps) {
 
       <div className="space-y-2 slide-up">
         <Label htmlFor="amount" className="flex items-center gap-2">
-          <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <span className="h-4 w-4 text-muted-foreground flex items-center justify-center font-bold">₵</span>
           Amount
         </Label>
         <Input

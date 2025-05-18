@@ -88,7 +88,7 @@ export function ExpenseList({ expenses, onEdit, onDelete }: ExpenseListProps) {
                       </Badge>
                     </div>
                   </TableCell>
-                  <TableCell className="font-medium">${Number(expense.amount).toFixed(2)}</TableCell>
+                  <TableCell className="font-medium">₵{Number(expense.amount).toFixed(2)}</TableCell>
                   <TableCell className="max-w-[200px] truncate">{expense.notes || "-"}</TableCell>
                   <TableCell>
                     <DropdownMenu>

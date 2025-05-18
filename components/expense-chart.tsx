@@ -117,7 +117,7 @@ export function ExpenseChart({ expenses }: ExpenseChartProps) {
       return (
         <div className="bg-white p-2 border rounded shadow-md text-sm">
           <p className="font-medium">{payload[0].payload.fullDate || label}</p>
-          <p className="text-blue-600">${payload[0].value.toFixed(2)}</p>
+          <p className="text-blue-600">₵{payload[0].value.toFixed(2)}</p>
         </div>
       );
     }
@@ -141,7 +141,7 @@ export function ExpenseChart({ expenses }: ExpenseChartProps) {
             <BarChart data={dailyChartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
               <XAxis dataKey="name" />
-              <YAxis tickFormatter={(value) => `$${value}`} width={50} />
+              <YAxis tickFormatter={(value) => `₵${value}`} width={50} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
             </BarChart>
@@ -168,7 +168,7 @@ export function ExpenseChart({ expenses }: ExpenseChartProps) {
                     ))}
                   </Pie>
                   <Tooltip 
-                    formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']}
+                    formatter={(value: number) => [`₵${value.toFixed(2)}`, 'Amount']}
                   />
                   <RechartsLegend />
                 </PieChart>
@@ -195,7 +195,7 @@ export function ExpenseChart({ expenses }: ExpenseChartProps) {
                 ))}
               </Pie>
               <Tooltip 
-                formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']}
+                formatter={(value: number) => [`₵${value.toFixed(2)}`, 'Amount']}
               />
               <RechartsLegend />
             </PieChart>
@@ -207,7 +207,7 @@ export function ExpenseChart({ expenses }: ExpenseChartProps) {
             <LineChart data={trendChartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
               <XAxis dataKey="name" />
-              <YAxis tickFormatter={(value) => `$${value}`} width={50} />
+              <YAxis tickFormatter={(value) => `₵${value}`} width={50} />
               <Tooltip content={<CustomTooltip />} />
               <Line 
                 type="monotone" 

@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import type { Expense, ExpenseCategory } from "@/lib/types"
 import { format, parseISO, startOfWeek, endOfWeek, eachDayOfInterval } from "date-fns"
 import { getCategoryColor, getCategoryColorHex } from "@/lib/utils"
-import { TrendingDown, TrendingUp, DollarSign } from "lucide-react"
+import { TrendingDown, TrendingUp } from "lucide-react"
 
 interface WeeklySummaryProps {
   expenses: Expense[]
@@ -111,9 +111,9 @@ export function WeeklySummary({ expenses }: WeeklySummaryProps) {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-medium">Weekly Total</h3>
-              <DollarSign className="h-5 w-5 text-blue-500" />
+              <span className="h-5 w-5 text-blue-500 flex items-center justify-center font-bold">₵</span>
             </div>
-            <p className="text-3xl font-bold mt-2">${weeklyTotal.toFixed(2)}</p>
+            <p className="text-3xl font-bold mt-2">₵{weeklyTotal.toFixed(2)}</p>
             <p className="text-sm text-muted-foreground mt-1">
               {format(weekStart, "MMM d")} - {format(weekEnd, "MMM d")}
             </p>
@@ -126,7 +126,7 @@ export function WeeklySummary({ expenses }: WeeklySummaryProps) {
               <h3 className="text-lg font-medium">Lowest Day</h3>
               <TrendingDown className="h-5 w-5 text-green-500" />
             </div>
-            <p className="text-3xl font-bold mt-2">${lowestDay.amount.toFixed(2)}</p>
+            <p className="text-3xl font-bold mt-2">₵{lowestDay.amount.toFixed(2)}</p>
             <p className="text-sm text-muted-foreground mt-1">{lowestDay.date}</p>
           </CardContent>
         </Card>
@@ -137,7 +137,7 @@ export function WeeklySummary({ expenses }: WeeklySummaryProps) {
               <h3 className="text-lg font-medium">Highest Day</h3>
               <TrendingUp className="h-5 w-5 text-red-500" />
             </div>
-            <p className="text-3xl font-bold mt-2">${highestDay.amount.toFixed(2)}</p>
+            <p className="text-3xl font-bold mt-2">₵{highestDay.amount.toFixed(2)}</p>
             <p className="text-sm text-muted-foreground mt-1">{highestDay.date}</p>
           </CardContent>
         </Card>
